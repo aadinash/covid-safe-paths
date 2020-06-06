@@ -19,17 +19,14 @@ import {
   supportedDeviceLanguageOrEnglish,
 } from '../locales/languages';
 import LocationServices from '../services/LocationService';
+import { useAssets } from '../TracingStrategyAssets';
 import { FEATURE_FLAG_SCREEN_NAME } from '../views/FeatureFlagToggles';
 import { GoogleMapsImport } from './Settings/GoogleMapsImport';
 import { SettingsItem as Item } from './Settings/SettingsItem';
-import { useAssets } from '../TracingStrategyAssets';
 
 export const SettingsScreen = ({ navigation }) => {
   const { t } = useTranslation();
-  const {
-    settingsLoggingActive,
-    settingsLoggingInactive,
-  } = useAssets();
+  const { settingsLoggingActive, settingsLoggingInactive } = useAssets();
   const [isLogging, setIsLogging] = useState(undefined);
   const [userLocale, setUserLocale] = useState(
     supportedDeviceLanguageOrEnglish(),
@@ -119,11 +116,17 @@ export const SettingsScreen = ({ navigation }) => {
           </NativePicker>
         </Section>
         <Section>
-          <Item
+          {/* <Item
             label={t('label.choose_provider_title')}
             description={t('label.choose_provider_subtitle')}
             onPress={() => navigation.navigate('ChooseProviderScreen')}
+          /> */}
+          <Item
+            label={t('label.choose_provider_title')}
+            description={t('label.choose_provider_subtitle') + 'new'}
+            onPress={() => navigation.navigate('AuthorityInfoScreen')}
           />
+
           <Item
             label={t('label.news_title')}
             description={t('label.news_subtitle')}

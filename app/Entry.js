@@ -9,7 +9,10 @@ import React, { useEffect, useState } from 'react';
 import { ONBOARDING_DONE } from './constants/storage';
 import { GetStoreData } from './helpers/General';
 import AboutScreen from './views/About';
+import AddManualURLScreen from './views/AddManualURL';
+import AuthorityInfoScreen from './views/AuthorityInfo';
 import ChooseProviderScreen from './views/ChooseProvider';
+import EditAuthoritiesScreen from './views/EditAuthorities';
 import {
   ExportCodeInput,
   ExportComplete,
@@ -34,6 +37,7 @@ import Onboarding2 from './views/onboarding/Onboarding2';
 import Onboarding3 from './views/onboarding/Onboarding3';
 import Onboarding4 from './views/onboarding/Onboarding4';
 import { OnboardingPermissions } from './views/onboarding/OnboardingPermissions';
+import SelectedHAsScreen from './views/SelectedHAs';
 import { SettingsScreen } from './views/Settings';
 
 const Stack = createStackNavigator();
@@ -120,6 +124,20 @@ export const Entry = () => {
           name='ChooseProviderScreen'
           component={ChooseProviderScreen}
         />
+        <Stack.Screen
+          name='AuthorityInfoScreen'
+          component={AuthorityInfoScreen}
+        />
+        <Stack.Screen name='SelectedHAsScreen' component={SelectedHAsScreen} />
+        <Stack.Screen
+          name='EditAuthoritiesScreen'
+          component={EditAuthoritiesScreen}
+        />
+        <Stack.Screen
+          name='AddManualURLScreen'
+          component={AddManualURLScreen}
+        />
+
         <Stack.Screen name='LicensesScreen' component={LicensesScreen} />
         <Stack.Screen
           name='ExposureHistoryScreen'
